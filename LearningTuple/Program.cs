@@ -1,21 +1,34 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
+// https://www.lynda.com/Xamarin-tutorials/New-Features-Xamarin-Visual-Studio-2017/601790-2.html
 namespace LearningTuple
 {
     class Program
     {
         static void Main(string[] args)
         {
-            // The code provided will print ‘Hello World’ to the console.
-            // Press Ctrl+F5 (or go to Debug > Start Without Debugging) to run your app.
-            Console.WriteLine("Hello World!");
-            Console.ReadKey();
+            var myTuple = Tuple.Create(1, "hello", true);
+            Console.WriteLine(myTuple.Item2);
 
-            // Go to http://aka.ms/dotnet-get-started-console to continue learning how to build a console app! 
+            foreach (var info in GetInfo())
+            {
+                Console.WriteLine($"Year: {info.Year}, Make: {info.Make}");
+            }
+
+            Console.ReadKey();
+        }
+
+        private static List<(int Year, string Make)> GetInfo()
+        {
+            var returnList = new List<(int, string)>();
+
+            returnList.Add((1990, "a"));
+            returnList.Add((2000, "b"));
+            returnList.Add((2010, "c"));
+            returnList.Add((2020, "d"));
+
+            return returnList;
         }
     }
 }
